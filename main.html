@@ -12,13 +12,22 @@
 			//Write your code here
 			if (arr.length<2) {
 				return -Infinity;
-			}else{
-				arr.sort((a, b) => a - b);
-				return arr[arr.length-2];
-				
+			}
+			let first = -Infinity;
+			let second = -Infinity;
+
+			for (let i = 0; i < arr.length; i++) {
+				const current = Number(arr[i]); 
+
+				if (current > first) {
+					second = first;
+					first = current;
+				} else if (current < first && current > second) {
+					second = current;
+				}
 			}
 
-			
+			return second;
 			
 		}
 
